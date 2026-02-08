@@ -1,166 +1,200 @@
 # 🎙️ Indic Voice Assistant
 
-Production-ready speech-to-speech chatbot supporting **Kannada**, **Telugu**, and **Hindi** languages.
+Production-ready speech-to-speech chatbot for Indian languages.  
+Supports **Kannada (ಕನ್ನಡ)**, **Telugu (తెలుగు)**, and **Hindi (हिंदी)** with fully local AI processing.
+
+---
 
 ## ✨ Features
 
-- 🗣️ **Voice Input**: Speak naturally in your language
-- 🎯 **Multilingual**: Kannada (ಕನ್ನಡ), Telugu (తెలుగు), Hindi (हिंदी)
-- 🤖 **AI-Powered**: Whisper (ASR) + Ollama (LLM) + gTTS (TTS)
-- 🔒 **Privacy-First**: All processing local, no cloud dependency
-- ⚡ **Fast**: ~3-5 seconds per response
-- 📱 **Mobile-Friendly**: Responsive React UI
-- 🛠️ **Production-Ready**: Error handling, logging, health checks
+- 🗣️ Voice Input – Speak naturally in your regional language  
+- 🌐 Multilingual Support – Kannada, Telugu, Hindi  
+- 🤖 AI Pipeline – Whisper (ASR) + Ollama (LLM) + gTTS (TTS)  
+- 🔒 Privacy-First – 100% local processing, no cloud dependency  
+- ⚡ Fast Responses – ~3–5 seconds per interaction  
+- 📱 Mobile-Friendly UI – Responsive React frontend  
+- 🛠️ Production-Ready – Logging, error handling, health checks  
+
+---
 
 ## 🏗️ Architecture
-User speaks (Kannada)
-↓
-[STEP 1] Whisper ASR (Audio → Text)
-↓
-[STEP 2] Ollama LLM (Text → Response)
-↓
-[STEP 3] gTTS TTS (Response → Audio)
-↓
-User hears response (Kannada)
 
+```
+User Speech (Regional Language)
+        ↓
+[1] Whisper ASR (Audio → Text)
+        ↓
+[2] Ollama LLM (Text → Response)
+        ↓
+[3] gTTS TTS (Response → Audio)
+        ↓
+User Hears Response (Same Language)
+```
+
+---
 
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js 16+
 - Python 3.8+
-- Ollama (https://ollama.ai)
+- Ollama → https://ollama.ai
 
-### 1. Install Ollama & Download Model
+---
+
+### 1️⃣ Install Ollama & Download Model
+
 ```bash
 ollama pull huihui_ai/hunyuan-mt-abliterated
 ollama serve
+```
 
-Copy
+---
 
-Insert at cursor
-2. Setup Backend
+### 2️⃣ Backend Setup (Flask)
+
+```bash
 cd backend
 python -m venv venv
-venv\Scripts\activate  # Windows
+venv\Scripts\activate   # Windows
 pip install -r requirements.txt
 python app.py
+```
 
-Copy
+Backend runs at: `http://localhost:5000`
 
-Insert at cursor
-bash
-3. Setup Frontend
+---
+
+### 3️⃣ Frontend Setup (React)
+
+```bash
 cd frontend
 npm install
 npm start
+```
 
-Copy
+Frontend runs at: `http://localhost:3000`
 
-Insert at cursor
-bash
-📁 Project Structure
+---
+
+## 📁 Project Structure
+
+```
 indic-voice-assistant/
 ├── frontend/          # React UI
 ├── backend/           # Flask API
-├── README.md          # This file
+├── README.md          # Project documentation
 ├── ARCHITECTURE.md    # System design
 └── LICENSE            # MIT License
+```
 
-Copy
+---
 
-Insert at cursor
-🔌 API Endpoints
-POST /api/chat
-Process audio and return response
+## 🔌 API Endpoints
 
-POST /api/chat/text
-Process text and return response
+### POST /api/chat
+- Accepts audio input  
+- Returns AI-generated speech response  
 
-GET /api/health
-Check service health
+### POST /api/chat/text
+- Accepts text input  
+- Returns text + audio response  
 
-🛠️ Tech Stack
-Component	Technology
-Frontend	React 18
-Backend	Flask
-ASR	Whisper (tiny)
-LLM	Ollama + Hunyuan
-TTS	gTTS
-📊 Performance
-Response Time: ~3-5 seconds
+### GET /api/health
+- Service health check  
 
-Audio Compression: 10x smaller (WebM/Opus)
+---
 
-Memory: ~2GB for models
+## 🛠️ Tech Stack
 
-Concurrent Users: 10+ (single server)
+| Layer      | Technology |
+|-----------|------------|
+| Frontend  | React 18 |
+| Backend   | Flask |
+| ASR       | Whisper (tiny) |
+| LLM       | Ollama + Hunyuan |
+| TTS       | gTTS |
 
-🔒 Security
-✅ Input validation
+---
 
-✅ CORS configuration
+## 📊 Performance
 
-✅ Local processing (no cloud)
+- Response Time: ~3–5 seconds  
+- Audio Format: WebM/Opus (≈10× smaller)  
+- Memory Usage: ~2 GB  
+- Concurrent Users: 10+ (single server)
 
-✅ Error handling
+---
 
-🚀 Deployment
-Frontend (Vercel/Netlify)
+## 🔒 Security & Privacy
+
+- Input validation  
+- CORS configuration  
+- Local AI inference (no cloud calls)  
+- Robust error handling  
+
+---
+
+## 🚀 Deployment
+
+### Frontend (Vercel / Netlify)
+
+```bash
 npm run build
+```
 
-Copy
+---
 
-Insert at cursor
-bash
-Backend (Docker)
+### Backend (Docker)
+
+```dockerfile
 FROM python:3.9
 WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
 CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
+```
 
-Copy
+---
 
-Insert at cursor
-dockerfile
-🐛 Troubleshooting
-Microphone not working?
+## 🐛 Troubleshooting
 
-Check browser permissions
+**Microphone not working?**
+- Check browser permissions  
+- Use HTTPS (required for mic access)
 
-Use HTTPS (required for mic access)
+**Ollama connection failed?**
+- Run `ollama serve`  
+- Verify: http://localhost:11434
 
-Ollama connection failed?
+**Models not loading?**
+- Ensure at least 2 GB free disk space
 
-Run ollama serve
+---
 
-Check http://localhost:11434
+## 📚 Documentation
 
-Models not loading?
+- ARCHITECTURE.md – System design  
+- LICENSE – MIT License  
 
-Verify disk space (~2GB needed)
+---
 
-📚 Documentation
-ARCHITECTURE.md - System design
+## 🎓 Key Highlights
 
-LICENSE - MIT License
+- Full-stack system (React + Flask)  
+- End-to-end ML pipeline (ASR → LLM → TTS)  
+- Multilingual Indic language support  
+- Stateless and scalable API  
+- Privacy-first, offline-capable AI  
 
-🎓 Key Highlights
-Full-Stack: React + Flask
+---
 
-ML Integration: 3 models in pipeline
+## 📄 License
 
-Multilingual: Kannada, Telugu, Hindi
+MIT License – see LICENSE  
 
-Production-Ready: Error handling, logging
+---
 
-Scalable: Stateless API design
-
-Privacy: Local processing
-
-📄 License
-MIT License - see LICENSE
-
-Status: ✅ Production-Ready
+### ✅ Status: Production-Ready
