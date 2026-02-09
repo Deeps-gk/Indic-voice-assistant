@@ -28,7 +28,7 @@ CORS(app)
 
 # Configuration
 OLLAMA_URL = os.getenv('OLLAMA_URL', 'http://localhost:11434')
-OLLAMA_MODEL = os.getenv('OLLAMA_MODEL', 'huihui_ai/hunyuan-mt-abliterated')
+OLLAMA_MODEL = os.getenv('OLLAMA_MODEL', 'llama3.2:1b')
 WHISPER_MODEL = os.getenv('WHISPER_MODEL', 'tiny')
 
 # Global model instances
