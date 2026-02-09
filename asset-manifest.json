@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Indic-voice-assistant/static/css/main.f9a3a219.css",
+    "main.js": "/Indic-voice-assistant/static/js/main.0635dd89.js",
+    "index.html": "/Indic-voice-assistant/index.html",
+    "main.f9a3a219.css.map": "/Indic-voice-assistant/static/css/main.f9a3a219.css.map",
+    "main.0635dd89.js.map": "/Indic-voice-assistant/static/js/main.0635dd89.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9a3a219.css",
+    "static/js/main.0635dd89.js"
+  ]
+}
