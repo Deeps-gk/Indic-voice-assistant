@@ -84,7 +84,6 @@ Frontend runs at: `http://localhost:3000`
 indic-voice-assistant/
 ├── frontend/          # React UI
 ├── backend/           # Flask API
-├── README.md          # Project documentation
 ├── ARCHITECTURE.md    # System design
 └── LICENSE            # MIT License
 ```
@@ -113,7 +112,7 @@ indic-voice-assistant/
 | Frontend  | React 18 |
 | Backend   | Flask |
 | ASR       | Whisper (tiny) |
-| LLM       | Ollama + Hunyuan |
+| LLM       | Ollama + llama 3.2 |
 | TTS       | gTTS |
 
 ---
@@ -171,13 +170,6 @@ CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 
 **Models not loading?**
 - Ensure at least 2 GB free disk space
-
----
-
-## 📚 Documentation
-
-- ARCHITECTURE.md – System design  
-- LICENSE – MIT License  
 
 ---
 
